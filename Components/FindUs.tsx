@@ -9,7 +9,7 @@ export default function FindUsSection() {
       title: "Head Office",
       address: "Chabahil 7, Kathmandu, Nepal",
       phone: "+01-5921796",
-      email: "fairmonteducation4@gmail.com",
+      email: "fairmonteducationconsultancy@gmail.com",
       mapUrl:
         "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3531.979565362191!2d85.3483194!3d27.7179172!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x623d11f5941c021f%3A0x25a17c72013bd1e3!2sFairmont%20Education%20Consultancy!5e0!3m2!1sen!2snp!4v1758692292555!5m2!1sen!2snp",
       directionsUrl: "https://maps.app.goo.gl/b2VdrBw1ehS278tC7",

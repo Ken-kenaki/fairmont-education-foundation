@@ -91,8 +91,8 @@ export default function ContactSection() {
     {
       icon: Mail,
       title: "Email",
-      details: "fairmonteducation@gmail.com",
-      link: "mailto:fairmonteducation@gmail.com",
+      details: "fairmonteducationconsultancy@gmail.com",
+      link: "mailto:fairmonteducationconsultancy@gmail.com",
     },
     {
       icon: MapPin,

@@ -92,10 +92,10 @@ export default function ConnectWithUs() {
                   <Mail className="w-5 h-5" />
                 </div>
                 <a
-                  href="mailto:info@nextgenadvisors.com"
+                  href="mailto:fairmonteducationconsultancy@gmail.com"
                   className="text-white/80 hover:text-[#AE1418] transition-colors"
                 >
-                  fairmonteducation4@gmail.com
+                  fairmonteducationconsultancy@gmail.com{" "}
                 </a>
               </div>
               <div className="flex items-center space-x-4">
@@ -111,7 +111,7 @@ export default function ConnectWithUs() {
 
           {/* Bento Grid Section */}
           <div className="grid grid-cols-2 grid-rows-2 gap-4 h-96">
-            <motion.div 
+            <motion.div
               className="relative rounded-xl overflow-hidden shadow-xl"
               whileHover={{ scale: 1.02 }}
               transition={{ type: "spring", stiffness: 300 }}
@@ -124,7 +124,7 @@ export default function ConnectWithUs() {
                 priority
               />
             </motion.div>
-            <motion.div 
+            <motion.div
               className="relative rounded-xl overflow-hidden shadow-xl"
               whileHover={{ scale: 1.02 }}
               transition={{ type: "spring", stiffness: 300 }}
@@ -136,7 +136,7 @@ export default function ConnectWithUs() {
                 className="object-cover"
               />
             </motion.div>
-            <motion.div 
+            <motion.div
               className="relative rounded-xl overflow-hidden shadow-xl"
               whileHover={{ scale: 1.02 }}
               transition={{ type: "spring", stiffness: 300 }}
@@ -148,7 +148,7 @@ export default function ConnectWithUs() {
                 className="object-cover"
               />
             </motion.div>
-            <motion.div 
+            <motion.div
               className="relative rounded-xl overflow-hidden shadow-xl"
               whileHover={{ scale: 1.02 }}
               transition={{ type: "spring", stiffness: 300 }}

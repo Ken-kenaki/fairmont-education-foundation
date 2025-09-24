@@ -89,7 +89,7 @@ export default function ServicesPage() {
     : services.filter(service => service.category === activeTab);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white overflow-x-hidden">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-[#1E165F] to-[#AE1418] text-white py-20 mt-32 md:py-28">
         <div className="container mx-auto px-4 relative z-10">

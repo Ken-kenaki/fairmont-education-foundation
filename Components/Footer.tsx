@@ -94,8 +94,8 @@ export default function Footer() {
     },
     {
       icon: <Mail size={18} />,
-      text: "fairmonteducation4@gmail.com",
-      url: "mailto:fairmonteducation4@gmail.com",
+      text: "fairmonteducationconsultancy@gmail.com",
+      url: "mailto:fairmonteducationconsultancy@gmail.com",
       isLink: true,
     },
     {
