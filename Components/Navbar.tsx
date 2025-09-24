@@ -48,14 +48,17 @@ export default function Navbar() {
 
   const testPreparations: TestPreparation[] = [
     {
+      name: "Japanese Language",
+      route: "/test-preparation/japanese-language",
+      icon: "📝",
+    },
+    {
       name: "IELTS Preparation",
       route: "/test-preparation/ielts",
       icon: "📝",
     },
     { name: "PTE Preparation", route: "/test-preparation/pte", icon: "💻" },
     { name: "GRE/ GMAT", route: "/test-preparation/gre", icon: "🧠" },
-    { name: "TOEFL", route: "/test-preparation/toefl", icon: "📝" },
-    { name: "SAT", route: "/test-preparation/sat", icon: "📚" },
   ];
 
   const services: Service[] = [
@@ -198,36 +201,29 @@ export default function Navbar() {
           opacity: isVisible ? 1 : 0,
         }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
-        className="hidden lg:block bg-[#35B354] text-white py-2 px-4 text-sm fixed w-full z-50"
+        className="hidden lg:block bg-[#1E165F] text-white py-2 px-4 text-sm fixed w-full z-50"
       >
         <div className="container mx-auto flex justify-end items-center gap-6">
           <Link
-            href="/gallery"
+            href="/success-stories"
             className="hover:opacity-80 transition-opacity whitespace-nowrap"
-            aria-label="Gallery"
+            aria-label="Success Storiess"
           >
-            GALLERY
+            SUCCESS STORIES
           </Link>
           <Link
-            href="/resources"
+            href="/sample-documents"
             className="hover:opacity-80 transition-opacity whitespace-nowrap"
-            aria-label="Resources"
+            aria-label="Sample Documents"
           >
-            RESOURCES
+            SAMPLE DOCUMENTS
           </Link>
           <Link
-            href="/apply-online"
+            href="stel:+977-9841615934"
             className="hover:opacity-80 transition-opacity whitespace-nowrap"
-            aria-label="Apply online"
+            aria-label="Call Us"
           >
-            APPLY ONLINE
-          </Link>
-          <Link
-            href="/login"
-            className="hover:opacity-80 transition-opacity whitespace-nowrap"
-            aria-label="Apply online"
-          >
-            LOGIN
+            CALL US
           </Link>
         </div>
       </motion.div>
@@ -258,9 +254,9 @@ export default function Navbar() {
               >
                 <Image
                   src="/logo.png"
-                  alt="Next Gen Advisors"
-                  width={150}
-                  height={150}
+                  alt="Fairmont Education Foundation Logo"
+                  width={110}
+                  height={110}
                 />
               </Link>
             </motion.div>
@@ -276,7 +272,7 @@ export default function Navbar() {
                 <Link href="/study-destinations" passHref>
                   <motion.button
                     whileHover={{ scale: 1.05 }}
-                    className="flex items-center text-gray-700 hover:text-[#35B354] font-medium transition-colors py-4"
+                    className="flex items-center text-gray-700 hover:text-[#1E165F] font-medium transition-colors py-4"
                     aria-label="Study destinations"
                   >
                     <span className="whitespace-nowrap">
@@ -318,10 +314,10 @@ export default function Navbar() {
                               <span className="text-2xl">
                                 {destination.flag}
                               </span>
-                              <span className="text-sm font-medium text-gray-700 group-hover:text-[#35B354]">
+                              <span className="text-sm font-medium text-gray-700 group-hover:text-[#AE1418]">
                                 {destination.name}
                               </span>
-                              <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-[#35B354] group-hover:translate-x-1 transition-all ml-auto" />
+                              <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-[#AE1418] group-hover:translate-x-1 transition-all ml-auto" />
                             </Link>
                           </motion.div>
                         ))}
@@ -340,7 +336,7 @@ export default function Navbar() {
                 <Link href="/test-preparation" passHref>
                   <motion.button
                     whileHover={{ scale: 1.05 }}
-                    className="flex items-center text-gray-700 hover:text-[#35B354] font-medium transition-colors py-4"
+                    className="flex items-center text-gray-700 hover:text-[#1E165F] font-medium transition-colors py-4"
                     aria-label="Test preparations"
                   >
                     <span className="whitespace-nowrap">TEST PREPARATION</span>
@@ -378,10 +374,10 @@ export default function Navbar() {
                               aria-label={`${prep.name} test preparation`}
                             >
                               <span className="text-xl">{prep.icon}</span>
-                              <span className="text-sm font-medium text-gray-700 group-hover:text-[#35B354]">
+                              <span className="text-sm font-medium text-gray-700 group-hover:text-[#AE1418]">
                                 {prep.name}
                               </span>
-                              <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-[#35B354] group-hover:translate-x-1 transition-all ml-auto" />
+                              <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-[#AE1418] group-hover:translate-x-1 transition-all ml-auto" />
                             </Link>
                           </motion.div>
                         ))}
@@ -393,7 +389,7 @@ export default function Navbar() {
               <motion.div whileHover={{ scale: 1.05 }}>
                 <Link
                   href="/about"
-                  className="text-gray-700 hover:text-[#35B354] font-medium transition-colors whitespace-nowrap"
+                  className="text-gray-700 hover:text-[#1E165F] font-medium transition-colors whitespace-nowrap"
                   aria-label="About us"
                 >
                   ABOUT US
@@ -408,7 +404,7 @@ export default function Navbar() {
               >
                 <motion.button
                   whileHover={{ scale: 1.05 }}
-                  className="flex items-center text-gray-700 hover:text-[#35B354] font-medium transition-colors py-4 whitespace-nowrap"
+                  className="flex items-center text-gray-700 hover:text-[#1E165F] font-medium transition-colors py-4 whitespace-nowrap"
                   aria-label="Our services"
                 >
                   OUR SERVICES
@@ -445,10 +441,10 @@ export default function Navbar() {
                               aria-label={service.name}
                             >
                               <span className="text-xl">{service.icon}</span>
-                              <span className="text-sm font-medium text-gray-700 group-hover:text-[#35B354] flex-1">
+                              <span className="text-sm font-medium text-gray-700 group-hover:text-[#1E165F] flex-1">
                                 {service.name}
                               </span>
-                              <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-[#35B354] group-hover:translate-x-1 transition-all" />
+                              <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-[#1E165F] group-hover:translate-x-1 transition-all" />
                             </Link>
                           </motion.div>
                         ))}
@@ -460,18 +456,18 @@ export default function Navbar() {
 
               <motion.div whileHover={{ scale: 1.05 }}>
                 <Link
-                  href="/events-news"
-                  className="text-gray-700 hover:text-[#35B354] font-medium transition-colors whitespace-nowrap"
-                  aria-label="Events and news"
+                  href="/gallery"
+                  className="text-gray-700 hover:text-[#1E165F] font-medium transition-colors whitespace-nowrap"
+                  aria-label="Gallery"
                 >
-                  EVENTS/NEWS
+                  GALLERY
                 </Link>
               </motion.div>
 
               <motion.div whileHover={{ scale: 1.05 }}>
                 <Link
                   href="/blog"
-                  className="text-gray-700 hover:text-[#35B354] font-medium transition-colors whitespace-nowrap"
+                  className="text-gray-700 hover:text-[#1E165F] font-medium transition-colors whitespace-nowrap"
                   aria-label="Blog"
                 >
                   BLOG
@@ -484,7 +480,7 @@ export default function Navbar() {
               >
                 <Link
                   href="/contact"
-                  className="bg-[#35B354] text-white px-4 xl:px-6 py-2 rounded font-medium hover:bg-[#2a8e43] transition-all duration-300 whitespace-nowrap"
+                  className="bg-[#1E165F] text-white px-4 xl:px-6 py-2 rounded font-medium hover:bg-[#AE1418] transition-all duration-300 whitespace-nowrap"
                   aria-label="Contact us"
                 >
                   CONTACT US
