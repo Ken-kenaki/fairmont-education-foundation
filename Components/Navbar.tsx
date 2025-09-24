@@ -2,73 +2,17 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { Menu, X, ChevronDown, ArrowRight } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-
-interface Destination {
-  name: string;
-  route: string;
-  flag: string;
-}
-
-interface TestPreparation {
-  name: string;
-  route: string;
-  icon: string;
-}
-
-interface Service {
-  name: string;
-  route: string;
-  icon: string;
-}
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
   const hamburgerButtonRef = useRef<HTMLButtonElement>(null);
   const navbarRef = useRef<HTMLDivElement>(null);
-
-  const destinations: Destination[] = [
-    { name: "Canada", route: "/study-destinations/canada", flag: "🇨🇦" },
-    { name: "Australia", route: "/study-destinations/australia", flag: "🇦🇺" },
-    { name: "UK", route: "/study-destinations/uk", flag: "🇬🇧" },
-    { name: "USA", route: "/study-destinations/usa", flag: "🇺🇸" },
-    {
-      name: "New Zealand",
-      route: "/study-destinations/new-zealand",
-      flag: "🇳🇿",
-    },
-  ];
-
-  const testPreparations: TestPreparation[] = [
-    {
-      name: "Japanese Language",
-      route: "/test-preparation/japanese-language",
-      icon: "📝",
-    },
-    {
-      name: "IELTS Preparation",
-      route: "/test-preparation/ielts",
-      icon: "📝",
-    },
-    { name: "PTE Preparation", route: "/test-preparation/pte", icon: "💻" },
-    { name: "GRE/ GMAT", route: "/test-preparation/gre", icon: "🧠" },
-  ];
-
-  const services: Service[] = [
-    { name: "Study Abroad Consultation", route: "/services", icon: "🎓" },
-    { name: "Visa Assistance", route: "/services", icon: "📋" },
-    { name: "Scholarship Guidance", route: "/services", icon: "💰" },
-    { name: "Test Preparations", route: "/services", icon: "📚" },
-    { name: "Pre-Departure Briefing", route: "/services", icon: "✈️" },
-    { name: "Post-Arrival Support", route: "/services", icon: "🤝" },
-  ];
 
   // Handle click outside mobile menu
   useEffect(() => {
@@ -109,44 +53,6 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
-  const handleDropdownEnter = (dropdown: string) => {
-    setActiveDropdown(dropdown);
-  };
-
-  const handleDropdownLeave = () => {
-    setActiveDropdown(null);
-  };
-
-  const toggleMobileDropdown = (dropdown: string) => {
-    setMobileDropdown(mobileDropdown === dropdown ? null : dropdown);
-  };
-
-  const dropdownVariants = {
-    hidden: {
-      opacity: 0,
-      y: -10,
-      scale: 0.95,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: 0.2,
-        ease: "easeOut",
-      },
-    },
-    exit: {
-      opacity: 0,
-      y: -10,
-      scale: 0.95,
-      transition: {
-        duration: 0.15,
-        ease: "easeIn",
-      },
-    },
-  };
-
   const mobileMenuVariants = {
     hidden: {
       x: "-100%",
@@ -164,70 +70,8 @@ export default function Navbar() {
     },
   };
 
-  const mobileDropdownVariants = {
-    hidden: {
-      opacity: 0,
-      height: 0,
-      transition: {
-        duration: 0.2,
-        ease: "easeOut",
-      },
-    },
-    visible: {
-      opacity: 1,
-      height: "auto",
-      transition: {
-        duration: 0.2,
-        ease: "easeOut",
-      },
-    },
-    exit: {
-      opacity: 0,
-      height: 0,
-      transition: {
-        duration: 0.15,
-        ease: "easeIn",
-      },
-    },
-  };
-
   return (
     <>
-      {/* Top Header Bar - Desktop Only */}
-      <motion.div
-        initial={{ y: 0 }}
-        animate={{
-          y: isVisible ? 0 : "-100%",
-          opacity: isVisible ? 1 : 0,
-        }}
-        transition={{ duration: 0.3, ease: "easeInOut" }}
-        className="hidden lg:block bg-[#1E165F] text-white py-2 px-4 text-sm fixed w-full z-50"
-      >
-        <div className="container mx-auto flex justify-end items-center gap-6">
-          <Link
-            href="/success-stories"
-            className="hover:opacity-80 transition-opacity whitespace-nowrap"
-            aria-label="Success Storiess"
-          >
-            SUCCESS STORIES
-          </Link>
-          <Link
-            href="/sample-documents"
-            className="hover:opacity-80 transition-opacity whitespace-nowrap"
-            aria-label="Sample Documents"
-          >
-            SAMPLE DOCUMENTS
-          </Link>
-          <Link
-            href="stel:+977-9841615934"
-            className="hover:opacity-80 transition-opacity whitespace-nowrap"
-            aria-label="Call Us"
-          >
-            CALL US
-          </Link>
-        </div>
-      </motion.div>
-
       {/* Main Navigation */}
       <motion.nav
         ref={navbarRef}
@@ -237,10 +81,12 @@ export default function Navbar() {
           opacity: isVisible ? 1 : 0,
         }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
-        className="bg-white shadow-lg fixed lg:top-[40px] top-0 z-40 w-full"
+        className="bg-white shadow-lg fixed top-0 z-40 w-full"
       >
         <div className="container mx-auto px-4">
-          <div className="flex justify-between items-center">
+          {/* Top Bar - Integrated into main nav */}
+
+          <div className="flex justify-between items-center py-3">
             {/* Logo */}
             <motion.div
               whileHover={{ scale: 1.05 }}
@@ -263,129 +109,44 @@ export default function Navbar() {
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-4 xl:gap-6">
-              {/* Study Destinations Dropdown */}
-              <div
-                className="relative"
-                onMouseEnter={() => handleDropdownEnter("destinations")}
-                onMouseLeave={handleDropdownLeave}
-              >
-                <Link href="/study-destinations" passHref>
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    className="flex items-center text-gray-700 hover:text-[#1E165F] font-medium transition-colors py-4"
-                    aria-label="Study destinations"
-                  >
-                    <span className="whitespace-nowrap">
-                      STUDY DESTINATIONS
-                    </span>
-                    <motion.div
-                      animate={{
-                        rotate: activeDropdown === "destinations" ? 180 : 0,
-                      }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <ChevronDown className="ml-1 w-4 h-4" />
-                    </motion.div>
-                  </motion.button>
+              <motion.div whileHover={{ scale: 1.05 }}>
+                <Link
+                  href="/countries"
+                  className="text-gray-700 hover:text-[#1E165F] font-medium transition-colors whitespace-nowrap"
+                  aria-label="Countries"
+                >
+                  COUNTRIES
                 </Link>
+              </motion.div>
 
-                <AnimatePresence>
-                  {activeDropdown === "destinations" && (
-                    <motion.div
-                      variants={dropdownVariants}
-                      initial="hidden"
-                      animate="visible"
-                      exit="exit"
-                      className="absolute top-full left-0 w-64 mt-2 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50"
-                    >
-                      <div className="space-y-1">
-                        {destinations.map((destination, index) => (
-                          <motion.div
-                            key={index}
-                            initial={{ opacity: 0, x: -10 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: index * 0.05 }}
-                          >
-                            <Link
-                              href={destination.route}
-                              className="flex items-center gap-3 px-4 py-3 hover:bg-[#f5f5f5] transition-colors group"
-                              aria-label={`Study in ${destination.name}`}
-                            >
-                              <span className="text-2xl">
-                                {destination.flag}
-                              </span>
-                              <span className="text-sm font-medium text-gray-700 group-hover:text-[#AE1418]">
-                                {destination.name}
-                              </span>
-                              <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-[#AE1418] group-hover:translate-x-1 transition-all ml-auto" />
-                            </Link>
-                          </motion.div>
-                        ))}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-
-              {/* Test Preparations Dropdown */}
-              <div
-                className="relative"
-                onMouseEnter={() => handleDropdownEnter("testprep")}
-                onMouseLeave={handleDropdownLeave}
+              <motion.div whileHover={{ scale: 1.05 }}>
+              <Link
+                href="/success-stories"
+                className="hover:opacity-80 transition-opacity whitespace-nowrap"
+                aria-label="Success Stories"
               >
-                <Link href="/test-preparation" passHref>
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    className="flex items-center text-gray-700 hover:text-[#1E165F] font-medium transition-colors py-4"
-                    aria-label="Test preparations"
-                  >
-                    <span className="whitespace-nowrap">TEST PREPARATION</span>
-                    <motion.div
-                      animate={{
-                        rotate: activeDropdown === "testprep" ? 180 : 0,
-                      }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <ChevronDown className="ml-1 w-4 h-4" />
-                    </motion.div>
-                  </motion.button>
-                </Link>
+                SUCCESS STORIES
+              </Link>
+              </motion.div>
+              <motion.div whileHover={{ scale: 1.05 }}>
+              <Link
+                href="/sample-documents"
+                className="hover:opacity-80 transition-opacity whitespace-nowrap"
+                aria-label="Sample Documents"
+              >
+                SAMPLE DOCUMENTS
+              </Link>
+              </motion.div>
+              <motion.div whileHover={{ scale: 1.05 }}>
+              <Link
+                href="tel:+977-9841615934"
+                className="hover:opacity-80 transition-opacity whitespace-nowrap"
+                aria-label="Call Us"
+              >
+                CALL US
+              </Link>
+              </motion.div>
 
-                <AnimatePresence>
-                  {activeDropdown === "testprep" && (
-                    <motion.div
-                      variants={dropdownVariants}
-                      initial="hidden"
-                      animate="visible"
-                      exit="exit"
-                      className="absolute top-full left-0 w-64 mt-2 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50"
-                    >
-                      <div className="space-y-1">
-                        {testPreparations.map((prep, index) => (
-                          <motion.div
-                            key={index}
-                            initial={{ opacity: 0, x: -10 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: index * 0.05 }}
-                          >
-                            <Link
-                              href={prep.route}
-                              className="flex items-center gap-3 px-4 py-3 hover:bg-[#f5f5f5] transition-colors group"
-                              aria-label={`${prep.name} test preparation`}
-                            >
-                              <span className="text-xl">{prep.icon}</span>
-                              <span className="text-sm font-medium text-gray-700 group-hover:text-[#AE1418]">
-                                {prep.name}
-                              </span>
-                              <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-[#AE1418] group-hover:translate-x-1 transition-all ml-auto" />
-                            </Link>
-                          </motion.div>
-                        ))}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
               <motion.div whileHover={{ scale: 1.05 }}>
                 <Link
                   href="/about"
@@ -396,63 +157,15 @@ export default function Navbar() {
                 </Link>
               </motion.div>
 
-              {/* Our Services Dropdown */}
-              <div
-                className="relative"
-                onMouseEnter={() => handleDropdownEnter("services")}
-                onMouseLeave={handleDropdownLeave}
-              >
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  className="flex items-center text-gray-700 hover:text-[#1E165F] font-medium transition-colors py-4 whitespace-nowrap"
+              <motion.div whileHover={{ scale: 1.05 }}>
+                <Link
+                  href="/services"
+                  className="text-gray-700 hover:text-[#1E165F] font-medium transition-colors whitespace-nowrap"
                   aria-label="Our services"
                 >
                   OUR SERVICES
-                  <motion.div
-                    animate={{
-                      rotate: activeDropdown === "services" ? 180 : 0,
-                    }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <ChevronDown className="ml-1 w-4 h-4" />
-                  </motion.div>
-                </motion.button>
-
-                <AnimatePresence>
-                  {activeDropdown === "services" && (
-                    <motion.div
-                      variants={dropdownVariants}
-                      initial="hidden"
-                      animate="visible"
-                      exit="exit"
-                      className="absolute top-full left-0 w-72 mt-2 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50"
-                    >
-                      <div className="space-y-1">
-                        {services.map((service, index) => (
-                          <motion.div
-                            key={index}
-                            initial={{ opacity: 0, x: -10 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: index * 0.05 }}
-                          >
-                            <Link
-                              href={service.route}
-                              className="flex items-center gap-3 px-4 py-3 hover:bg-[#f5f5f5] transition-colors group"
-                              aria-label={service.name}
-                            >
-                              <span className="text-xl">{service.icon}</span>
-                              <span className="text-sm font-medium text-gray-700 group-hover:text-[#1E165F] flex-1">
-                                {service.name}
-                              </span>
-                              <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-[#1E165F] group-hover:translate-x-1 transition-all" />
-                            </Link>
-                          </motion.div>
-                        ))}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
+                </Link>
+              </motion.div>
 
               <motion.div whileHover={{ scale: 1.05 }}>
                 <Link
@@ -564,42 +277,42 @@ export default function Navbar() {
                     {/* Mobile Top Nav Items */}
                     <div className="border-b pb-4 space-y-2">
                       <Link
-                        href="/gallery"
+                        href="/success-stories"
                         className="block py-2 text-gray-700 hover:text-[#35B354] font-medium transition-colors"
                         onClick={() => setIsOpen(false)}
-                        aria-label="Gallery"
+                        aria-label="Success Stories"
                       >
-                        GALLERY
+                        SUCCESS STORIES
                       </Link>
                       <Link
-                        href="/resources"
+                        href="/sample-documents"
                         className="block py-2 text-gray-700 hover:text-[#35B354] font-medium transition-colors"
                         onClick={() => setIsOpen(false)}
-                        aria-label="Resources"
+                        aria-label="Sample Documents"
                       >
-                        RESOURCES
+                        SAMPLE DOCUMENTS
                       </Link>
                       <Link
-                        href="/apply-online"
+                        href="tel:+977-9841615934"
                         className="block py-2 text-gray-700 hover:text-[#35B354] font-medium transition-colors"
                         onClick={() => setIsOpen(false)}
-                        aria-label="Apply online"
+                        aria-label="Call Us"
                       >
-                        APPLY ONLINE
-                      </Link>
-
-                      <Link
-                        href="/login"
-                        className="block py-2 text-gray-700 hover:text-[#35B354] font-medium transition-colors"
-                        onClick={() => setIsOpen(false)}
-                        aria-label="Apply online"
-                      >
-                        LOGIN
+                        CALL US
                       </Link>
                     </div>
 
                     {/* Mobile Main Nav Items */}
                     <div className="space-y-4">
+                      <Link
+                        href="/countries"
+                        className="block py-2 text-gray-700 hover:text-[#35B354] font-medium transition-colors border-b"
+                        onClick={() => setIsOpen(false)}
+                        aria-label="Countries"
+                      >
+                        COUNTRIES
+                      </Link>
+
                       <Link
                         href="/about"
                         className="block py-2 text-gray-700 hover:text-[#35B354] font-medium transition-colors border-b"
@@ -609,184 +322,22 @@ export default function Navbar() {
                         ABOUT US
                       </Link>
 
-                      {/* Study Destinations Mobile Dropdown */}
-                      <div className="border-b pb-2">
-                        <div className="flex items-center justify-between w-full">
-                          <Link
-                            href="/study-destinations"
-                            className="py-2 text-gray-700 hover:text-[#35B354] font-medium transition-colors"
-                            onClick={() => setIsOpen(false)}
-                          >
-                            STUDY DESTINATIONS
-                          </Link>
-                          <button
-                            onClick={(e) => {
-                              e.preventDefault();
-                              e.stopPropagation();
-                              toggleMobileDropdown("destinations");
-                            }}
-                            aria-label="Toggle destinations dropdown"
-                            className="p-2"
-                          >
-                            <motion.div
-                              animate={{
-                                rotate:
-                                  mobileDropdown === "destinations" ? 180 : 0,
-                              }}
-                              transition={{ duration: 0.2 }}
-                            >
-                              <ChevronDown className="w-4 h-4" />
-                            </motion.div>
-                          </button>
-                        </div>
-                        <AnimatePresence>
-                          {mobileDropdown === "destinations" && (
-                            <motion.div
-                              variants={mobileDropdownVariants}
-                              initial="hidden"
-                              animate="visible"
-                              exit="exit"
-                              className="overflow-hidden"
-                            >
-                              <div className="pl-4 py-2 space-y-2">
-                                {destinations.map((destination, index) => (
-                                  <Link
-                                    key={index}
-                                    href={destination.route}
-                                    className="flex items-center gap-3 py-2 text-gray-700 hover:text-[#35B354] transition-colors"
-                                    onClick={() => setIsOpen(false)}
-                                    aria-label={`Study in ${destination.name}`}
-                                  >
-                                    <span className="text-xl">
-                                      {destination.flag}
-                                    </span>
-                                    <span>{destination.name}</span>
-                                  </Link>
-                                ))}
-                              </div>
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
-                      </div>
-
-                      {/* Test Preparation Mobile Dropdown */}
-                      <div className="border-b pb-2">
-                        <div className="flex items-center justify-between w-full">
-                          <Link
-                            href="/test-preparation"
-                            className="py-2 text-gray-700 hover:text-[#35B354] font-medium transition-colors"
-                            onClick={() => setIsOpen(false)}
-                          >
-                            TEST PREPARATION
-                          </Link>
-                          <button
-                            onClick={(e) => {
-                              e.preventDefault();
-                              e.stopPropagation();
-                              toggleMobileDropdown("testprep");
-                            }}
-                            aria-label="Toggle test preparation dropdown"
-                            className="p-2"
-                          >
-                            <motion.div
-                              animate={{
-                                rotate: mobileDropdown === "testprep" ? 180 : 0,
-                              }}
-                              transition={{ duration: 0.2 }}
-                            >
-                              <ChevronDown className="w-4 h-4" />
-                            </motion.div>
-                          </button>
-                        </div>
-                        <AnimatePresence>
-                          {mobileDropdown === "testprep" && (
-                            <motion.div
-                              variants={mobileDropdownVariants}
-                              initial="hidden"
-                              animate="visible"
-                              exit="exit"
-                              className="overflow-hidden"
-                            >
-                              <div className="pl-4 py-2 space-y-2">
-                                {testPreparations.map((prep, index) => (
-                                  <Link
-                                    key={index}
-                                    href={prep.route}
-                                    className="flex items-center gap-3 py-2 text-gray-700 hover:text-[#35B354] transition-colors"
-                                    onClick={() => setIsOpen(false)}
-                                    aria-label={`${prep.name} test preparation`}
-                                  >
-                                    <span className="text-xl">{prep.icon}</span>
-                                    <span>{prep.name}</span>
-                                  </Link>
-                                ))}
-                              </div>
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
-                      </div>
-
-                      {/* Our Services Mobile Dropdown */}
-                      <div className="border-b pb-2">
-                        <div className="flex items-center justify-between w-full">
-                          <span className="py-2 text-gray-700 hover:text-[#35B354] font-medium transition-colors">
-                            OUR SERVICES
-                          </span>
-                          <button
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              toggleMobileDropdown("services");
-                            }}
-                            aria-label="Toggle services dropdown"
-                            className="p-2"
-                          >
-                            <motion.div
-                              animate={{
-                                rotate: mobileDropdown === "services" ? 180 : 0,
-                              }}
-                              transition={{ duration: 0.2 }}
-                            >
-                              <ChevronDown className="w-4 h-4" />
-                            </motion.div>
-                          </button>
-                        </div>
-                        <AnimatePresence>
-                          {mobileDropdown === "services" && (
-                            <motion.div
-                              variants={mobileDropdownVariants}
-                              initial="hidden"
-                              animate="visible"
-                              exit="exit"
-                              className="overflow-hidden"
-                            >
-                              <div className="pl-4 py-2 space-y-2">
-                                {services.map((service, index) => (
-                                  <Link
-                                    key={index}
-                                    href={service.route}
-                                    className="flex items-center gap-3 py-2 text-gray-700 hover:text-[#35B354] transition-colors"
-                                    onClick={() => setIsOpen(false)}
-                                    aria-label={service.name}
-                                  >
-                                    <span className="text-xl">
-                                      {service.icon}
-                                    </span>
-                                    <span>{service.name}</span>
-                                  </Link>
-                                ))}
-                              </div>
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
-                      </div>
-
                       <Link
-                        href="/events-news"
+                        href="/services"
                         className="block py-2 text-gray-700 hover:text-[#35B354] font-medium transition-colors border-b"
                         onClick={() => setIsOpen(false)}
-                        aria-label="Events and news"
+                        aria-label="Our services"
                       >
-                        EVENTS/NEWS
+                        OUR SERVICES
+                      </Link>
+
+                      <Link
+                        href="/gallery"
+                        className="block py-2 text-gray-700 hover:text-[#35B354] font-medium transition-colors border-b"
+                        onClick={() => setIsOpen(false)}
+                        aria-label="Gallery"
+                      >
+                        GALLERY
                       </Link>
 
                       <Link
