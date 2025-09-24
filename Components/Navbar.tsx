@@ -120,31 +120,23 @@ export default function Navbar() {
               </motion.div>
 
               <motion.div whileHover={{ scale: 1.05 }}>
-              <Link
-                href="/success-stories"
-                className="hover:opacity-80 transition-opacity whitespace-nowrap"
-                aria-label="Success Stories"
-              >
-                SUCCESS STORIES
-              </Link>
+                <Link
+                  href="/services"
+                  className="text-gray-700 hover:text-[#1E165F] font-medium transition-colors whitespace-nowrap"
+                  aria-label="Our services"
+                >
+                  OUR SERVICES
+                </Link>
               </motion.div>
+
               <motion.div whileHover={{ scale: 1.05 }}>
-              <Link
-                href="/sample-documents"
-                className="hover:opacity-80 transition-opacity whitespace-nowrap"
-                aria-label="Sample Documents"
-              >
-                SAMPLE DOCUMENTS
-              </Link>
-              </motion.div>
-              <motion.div whileHover={{ scale: 1.05 }}>
-              <Link
-                href="tel:+977-9841615934"
-                className="hover:opacity-80 transition-opacity whitespace-nowrap"
-                aria-label="Call Us"
-              >
-                CALL US
-              </Link>
+                <Link
+                  href="/sample-documents"
+                  className="hover:opacity-80 transition-opacity whitespace-nowrap"
+                  aria-label="Sample Documents"
+                >
+                  SAMPLE DOCUMENTS
+                </Link>
               </motion.div>
 
               <motion.div whileHover={{ scale: 1.05 }}>
@@ -154,16 +146,6 @@ export default function Navbar() {
                   aria-label="About us"
                 >
                   ABOUT US
-                </Link>
-              </motion.div>
-
-              <motion.div whileHover={{ scale: 1.05 }}>
-                <Link
-                  href="/services"
-                  className="text-gray-700 hover:text-[#1E165F] font-medium transition-colors whitespace-nowrap"
-                  aria-label="Our services"
-                >
-                  OUR SERVICES
                 </Link>
               </motion.div>
 
@@ -187,6 +169,16 @@ export default function Navbar() {
                 </Link>
               </motion.div>
 
+              <motion.div whileHover={{ scale: 1.05 }}>
+                <Link
+                  href="tel:+977-9841615934"
+                  className="hover:opacity-80 transition-opacity whitespace-nowrap"
+                  aria-label="Call Us"
+                >
+                  CALL US
+                </Link>
+              </motion.div>
+
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -196,7 +188,7 @@ export default function Navbar() {
                   className="bg-[#1E165F] text-white px-4 xl:px-6 py-2 rounded font-medium hover:bg-[#AE1418] transition-all duration-300 whitespace-nowrap"
                   aria-label="Contact us"
                 >
-                  CONTACT US
+                  APPLY NOW
                 </Link>
               </motion.div>
             </div>
