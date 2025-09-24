@@ -86,7 +86,7 @@ export default function Navbar() {
         <div className="container mx-auto px-4">
           {/* Top Bar - Integrated into main nav */}
 
-          <div className="flex justify-between items-center py-3">
+          <div className="flex justify-between items-center">
             {/* Logo */}
             <motion.div
               whileHover={{ scale: 1.05 }}
@@ -268,14 +268,6 @@ export default function Navbar() {
                   >
                     {/* Mobile Top Nav Items */}
                     <div className="border-b pb-4 space-y-2">
-                      <Link
-                        href="/success-stories"
-                        className="block py-2 text-gray-700 hover:text-[#35B354] font-medium transition-colors"
-                        onClick={() => setIsOpen(false)}
-                        aria-label="Success Stories"
-                      >
-                        SUCCESS STORIES
-                      </Link>
                       <Link
                         href="/sample-documents"
                         className="block py-2 text-gray-700 hover:text-[#35B354] font-medium transition-colors"
