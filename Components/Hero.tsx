@@ -138,16 +138,16 @@ export default function HeroSection(): JSX.Element {
       position: "lg:top-1/2 lg:right-6 top-1/3 right-3",
       bg: "bg-[#1E165F]",
       text: "text-white",
-      title: "Osaka",
-      value: "Institute",
+      title: "Australian",
+      value: "Campus",
       icon: <MapPin className="w-3 h-3 md:w-4 md:h-4" />
     },
     {
       position: "lg:bottom-1/3 lg:left-4 bottom-1/3 left-3",
       bg: "bg-[#AE1418]",
       text: "text-white",
-      title: "Kyoto",
-      value: "College",
+      title: "British",
+      value: "Colleges",
       icon: <GraduationCap className="w-3 h-3 md:w-4 md:h-4" />
     },
     {
@@ -178,7 +178,7 @@ export default function HeroSection(): JSX.Element {
                     ref={addToRefs(textElementsRef, 1)}
                     className="text-[#1E165F] block"
                   >
-                    Study in Japan
+                    Study Abroad
                   </span>
                   <span
                     ref={addToRefs(textElementsRef, 2)}
@@ -190,7 +190,7 @@ export default function HeroSection(): JSX.Element {
                     ref={addToRefs(textElementsRef, 3)}
                     className="text-[#1E165F] block text-xl sm:text-2xl md:text-3xl lg:text-4xl mt-2 md:mt-4 font-normal"
                   >
-                    Your Gateway to Japanese Education
+                    Your Gateway to Foreign Education
                   </span>
                 </h1>
 
@@ -200,9 +200,9 @@ export default function HeroSection(): JSX.Element {
                   className="text-gray-700 text-base sm:text-lg md:text-xl leading-relaxed font-medium max-w-2xl"
                 >
                   Fairmont Education Consultancy specializes in connecting students with 
-                  premier Japanese educational institutions. Our expert team ensures 
+                  premier Japanese, Australian, British educational institutions. Our expert team ensures 
                   seamless visa processing and comprehensive support for your academic 
-                  journey in Japan.
+                  journey abroad.
                 </p>
 
                 {/* Key Features - Responsive grid */}
@@ -229,19 +229,19 @@ export default function HeroSection(): JSX.Element {
               {/* CTA Buttons - Responsive layout */}
               <div ref={buttonsRef} className="flex flex-col sm:flex-row gap-3 md:gap-4">
                 <Link
-                  href="/japan-consultation"
+                  href="/contact"
                   className="group flex items-center justify-center space-x-2 md:space-x-3 bg-gradient-to-r from-[#AE1418] to-[#1E165F] text-white px-6 py-3 md:px-8 md:py-4 rounded-xl font-bold hover:shadow-2xl transition-all duration-300 shadow-lg hover:scale-105 text-base md:text-lg"
                 >
-                  <span>Free Japan Consultation</span>
+                  <span>Free Consultation</span>
                   <ArrowRight className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-2 transition-transform" />
                 </Link>
 
                 <a
-                  href="tel:+81312345678"
+                  href="tel:+01-5921796"
                   className="group flex items-center justify-center space-x-2 md:space-x-3 bg-white border-2 border-[#1E165F] text-[#1E165F] px-6 py-3 md:px-8 md:py-4 rounded-xl font-bold hover:bg-[#1E165F] hover:text-white hover:shadow-xl transition-all duration-300 text-base md:text-lg"
                 >
                   <span className="text-lg md:text-xl">🇯🇵</span>
-                  <span>Talk to Japan Expert</span>
+                  <span>Talk to Consulting Expert</span>
                 </a>
               </div>
 
@@ -272,7 +272,7 @@ export default function HeroSection(): JSX.Element {
           <div className="relative order-1 lg:order-2">
             <div
               ref={imageContainerRef}
-              className="relative w-full h-[350px] sm:h-[400px] md:h-[500px] lg:h-[650px] rounded-2xl overflow-hidden flex items-center justify-center"
+              className="relative w-full h-[600px] sm:h-[400px] md:h-[500px] lg:h-[650px] rounded-2xl overflow-hidden flex items-center justify-center"
             >
               {/* Hero Image */}
               <div className="relative z-10 w-full h-full">

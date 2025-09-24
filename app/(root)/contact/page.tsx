@@ -102,21 +102,18 @@ export default function Admission() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-8 md:mb-16">
           <h1
-            className="text-3xl md:text-5xl font-bold mb-3 md:mb-4"
-            style={{ color: "#232E2F" }}
+            className="text-3xl md:text-5xl font-bold mb-3 md:mb-4 text-[#1E165F]"
           >
             Study Abroad Consultation
           </h1>
           <p
-            className="text-lg md:text-xl max-w-2xl mx-auto px-2"
-            style={{ color: "#666" }}
+            className="text-lg md:text-xl max-w-2xl mx-auto px-2 text-[#1E165F]/80"
           >
             Turn your dream of studying abroad into reality with Nepal's
             trusted education consultancy
           </p>
         </div>
 
-        {/* Consultation Form - Mobile optimized */}
         <form
           onSubmit={handleSubmit}
           className="bg-white rounded-xl md:rounded-2xl shadow-lg md:shadow-xl overflow-hidden max-w-2xl mx-auto"
@@ -124,14 +121,12 @@ export default function Admission() {
         >
           <div className="p-6 sm:p-8 md:p-10">
             <h2
-              className="text-2xl md:text-3xl font-bold mb-2"
-              style={{ color: "#232E2F" }}
+              className="text-2xl md:text-3xl font-bold mb-2 text-[#1E165F]"
             >
               Free Consultation
             </h2>
             <p
-              className="mb-6 md:mb-8 text-sm md:text-base"
-              style={{ color: "#666" }}
+              className="mb-6 md:mb-8 text-sm md:text-base text-[#1E165F]/80"
             >
               Get expert guidance on your study abroad journey
             </p>
@@ -141,8 +136,7 @@ export default function Admission() {
                 <div>
                   <label
                     htmlFor="fullName"
-                    className="block text-sm font-medium mb-1 md:mb-2"
-                    style={{ color: "#232E2F" }}
+                    className="block text-sm font-medium mb-1 md:mb-2 text-[#1E165F]"
                   >
                     Full Name
                   </label>
@@ -165,8 +159,7 @@ export default function Admission() {
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-sm font-medium mb-1 md:mb-2"
-                    style={{ color: "#232E2F" }}
+                    className="block text-sm font-medium mb-1 md:mb-2 text-[#1E165F]"
                   >
                     Email
                   </label>
@@ -190,8 +183,7 @@ export default function Admission() {
               <div>
                 <label
                   htmlFor="phone"
-                  className="block text-sm font-medium mb-1 md:mb-2"
-                  style={{ color: "#232E2F" }}
+                  className="block text-sm font-medium mb-1 md:mb-2 text-[#1E165F]"
                 >
                   Phone Number
                 </label>
@@ -214,8 +206,7 @@ export default function Admission() {
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-sm font-medium mb-1 md:mb-2"
-                  style={{ color: "#232E2F" }}
+                  className="block text-sm font-medium mb-1 md:mb-2 text-[#1E165F]"
                 >
                   Tell us about your study abroad goals (Optional)
                 </label>
@@ -240,13 +231,13 @@ export default function Admission() {
                 disabled={isSubmitting}
                 className="w-full text-white py-3 md:py-4 px-6 rounded-lg font-bold text-base md:text-lg transition transform hover:scale-[1.02] shadow-md disabled:opacity-70"
                 style={{
-                  backgroundColor: "#232E2F",
+                  backgroundColor: "#1E165F",
                 }}
                 onMouseEnter={(e) =>
-                  (e.currentTarget.style.backgroundColor = "#1A2323")
+                  (e.currentTarget.style.backgroundColor = "#AE1418")
                 }
                 onMouseLeave={(e) =>
-                  (e.currentTarget.style.backgroundColor = "#232E2F")
+                  (e.currentTarget.style.backgroundColor = "#1E165F")
                 }
               >
                 {isSubmitting ? (
@@ -282,16 +273,15 @@ export default function Admission() {
 
           <div
             className="p-4 md:p-6 text-center"
-            style={{ backgroundColor: "#D9F1F1" }}
+            style={{ backgroundColor: "#AE1418" }}
           >
-            <p className="text-sm md:text-base" style={{ color: "#232E2F" }}>
+            <p className="text-sm md:text-base text-white/80">
               Ready to start your journey? Call us at{" "}
               <a
                 href="tel:01-5916232"
-                className="font-semibold hover:underline"
-                style={{ color: "#232E2F" }}
+                className="font-semibold hover:underline text-white"
               >
-                +977-9862358543
+                +977-9841615934
 
               </a>
             </p>

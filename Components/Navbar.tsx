@@ -348,7 +348,7 @@ export default function Navbar() {
                     >
                       <Link
                         href="/contact"
-                        className="w-full bg-[#35B354] text-white px-6 py-3 rounded font-medium hover:bg-[#2a8e43] transition-all duration-300 text-center block"
+                        className="w-full bg-[#AE1418] text-white px-6 py-3 rounded font-medium hover:bg-[#2a8e43] transition-all duration-300 text-center block"
                         onClick={() => setIsOpen(false)}
                         aria-label="Contact us"
                       >
